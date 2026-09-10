@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منحتي | Minhaty</title>
+  <meta name="description" content="منحتي - اكتشف المنح والجامعات المناسبة لك">
+  <style>
+    :root{
+      --primary:#29258f;
+      --primary2:#3730b8;
+      --blue:#168bd0;
+      --text:#172554;
+      --muted:#64748b;
+      --bg:#f7faff;
+      --card:#ffffff;
+      --line:#e5e7eb;
+      --green:#18a875;
+      --orange:#f59e0b;
+      --shadow:0 12px 35px rgba(37,45,120,.10);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Tahoma,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+    }
+    button,input{font:inherit}
+    button{cursor:pointer}
+    .container{width:min(1180px,92%);margin:auto}
+    header{
+      background:#fff;
+      border-bottom:1px solid #eef2f7;
+      position:sticky;top:0;z-index:20;
+    }
+    .nav{
+      min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--primary)}
+    .logo{
+      width:48px;height:48px;border-radius:14px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--blue));
+      color:white;font-size:24px;
+    }
+    .brand strong{font-size:26px;display:block}
+    .brand small{display:block;color:var(--muted);font-size:12px;direction:ltr}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .ghost,.primary,.language{
+      border:0;border-radius:13px;padding:11px 17px;background:#fff;color:var(--primary);
+    }
+    .primary{background:var(--primary);color:#fff;font-weight:bold}
+    .ghost{border:1px solid var(--line)}
+    .hero{
+      background:
+        radial-gradient(circle at 10% 20%,#dff4ff 0,transparent 28%),
+        radial-gradient(circle at 90% 15%,#e8e5ff 0,transparent 30%),
+        linear-gradient(135deg,#fff,#f4f8ff);
+      padding:70px 0 55px;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px;
+    }
+    .hero h1{font-size:clamp(36px,5vw,64px);line-height:1.1;margin:0 0 16px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{font-size:20px;color:var(--muted);line-height:1.8;margin:0 0 26px}
+    .search{
+      display:flex;background:#fff;padding:7px;border-radius:18px;
+      box-shadow:var(--shadow);border:1px solid #eef2ff;
+    }
+    .search input{flex:1;border:0;outline:0;padding:14px;background:transparent;color:var(--text)}
+    .search button{border:0;background:var(--primary);color:#fff;border-radius:14px;padding:0 22px;font-weight:bold}
+    .hero-art{
+      min-height:310px;border-radius:32px;position:relative;
+      background:linear-gradient(145deg,#e9f6ff,#eeecff);
+      box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;
+      font-size:130px;
+    }
+    .hero-art:after{
+      content:"🎓";position:absolute;bottom:24px;left:25px;font-size:70px;
+    }
+    section{padding:55px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}
+    .section-head h2{margin:0;font-size:30px}
+    .section-head a{color:var(--primary);font-weight:bold;text-decoration:none}
+    .quick{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-5px;
+    }
+    .quick-card{
+      background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;
+      box-shadow:0 7px 25px rgba(20,30,80,.05);transition:.2s;
+    }
+    .quick-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .icon{font-size:30px;margin-bottom:12px}
+    .quick-card h3{margin:0 0 7px}
+    .quick-card p{margin:0;color:var(--muted);line-height:1.7;font-size:14px}
+    .ai{
+      background:linear-gradient(135deg,#e5f3ff,#efedff);
+      border-radius:28px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:25px;
+      box-shadow:var(--shadow);
+    }
+    .ai h2{margin:0 0 10px;font-size:28px}
+    .ai p{margin:0;color:var(--muted);line-height:1.8}
+    .bot{font-size:78px}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{
+      background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+      box-shadow:0 8px 25px rgba(20,30,80,.05)
+    }
+    .cover{
+      height:145px;display:grid;place-items:center;font-size:55px;
+      background:linear-gradient(135deg,#dceeff,#e8e4ff);
+    }
+    .card-body{padding:17px}
+    .badge{display:inline-block;padding:5px 9px;border-radius:99px;background:#dcfce7;color:#15803d;font-size:12px;font-weight:bold}
+    .card h3{font-size:18px;margin:12px 0 4px}
+    .en{font-size:12px;color:var(--muted);direction:ltr;text-align:right}
+    .meta{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0;color:var(--muted);font-size:12px}
+    .card-footer{display:flex;gap:8px}
+    .details{flex:1;border:1px solid var(--primary);background:#fff;color:var(--primary);padding:9px;border-radius:11px;font-weight:bold}
+    .save{width:42px;border:1px solid var(--line);background:#fff;border-radius:11px}
+    .universities .card{padding:22px;text-align:center}
+    .uni-logo{height:60px;display:grid;place-items:center;font-size:32px}
+    .benefits{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    }
+    .benefit{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center}
+    .benefit b{display:block;margin:7px 0}
+    .benefit span{font-size:13px;color:var(--muted);line-height:1.6}
+    footer{background:#11164f;color:#fff;padding:40px 0 90px;margin-top:20px}
+    footer .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+    footer a{color:#dbeafe;text-decoration:none;margin-left:18px}
+    .bottom{
+      display:none;
+      position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);
+      z-index:30;padding:8px 10px;justify-content:space-around;
+    }
+    .bottom button{border:0;background:transparent;color:#64748b;font-size:11px}
+    .bottom button span{display:block;font-size:21px;margin-bottom:2px}
+    .bottom button.active{color:var(--primary);font-weight:bold}
+    .toast{
+      position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(30px);
+      background:#111827;color:#fff;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:50
+    }
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-art{min-height:220px}
+      .quick,.cards{grid-template-columns:repeat(2,1fr)}
+      .benefits{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:620px){
+      .nav{min-height:68px}
+      .brand strong{font-size:22px}
+      .language{display:none}
+      .hero{padding:45px 0 35px}
+      .hero h1{font-size:40px}
+      .hero p{font-size:16px}
+      .hero-art{font-size:90px;min-height:180px}
+      .quick,.cards,.benefits{grid-template-columns:1fr}
+      .ai{padding:24px;display:block}
+      .bot{font-size:55px;margin-top:15px}
+      section{padding:38px 0}
+      .bottom{display:flex}
+      footer{padding-bottom:85px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">
+      <div class="logo">🎓</div>
+      <div><strong>منحتي</strong><small>MINHATY</small></div>
+    </a>
+    <div class="nav-actions">
+      <button class="language" onclick="toggleLanguage()">English</button>
+      <button class="ghost" onclick="showToast('ميزة تسجيل الدخول ستُربط لاحقًا بـ Firebase')">تسجيل الدخول</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>منحتك <span>تبدأ من هنا</span></h1>
+        <p>اكتشف المنحة والجامعة المناسبة لك. ابحث، قارن، وقدّم بثقة.</p>
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="ابحث عن تخصص، جامعة أو منحة..." onkeydown="if(event.key==='Enter')searchScholarships()">
+          <button onclick="searchScholarships()">بحث 🔎</button>
+        </div>
+      </div>
+      <div class="hero-art">🌍📚</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="quick">
+        <div class="quick-card" onclick="scrollToSection('scholarships')"><div class="icon">🎓</div><h3>المنح</h3><p>ابحث عن آلاف الفرص حول العالم</p></div>
+        <div class="quick-card" onclick="scrollToSection('universities')"><div class="icon">🏫</div><h3>الجامعات</h3><p>تعرّف على الجامعات والتخصصات</p></div>
+        <div class="quick-card" onclick="openAssistant()"><div class="icon">🤖</div><h3>مساعد منحتي</h3><p>اكتشف الفرص المناسبة لك بالذكاء الاصطناعي</p></div>
+        <div class="quick-card" onclick="showToast('سجّل الدخول لمتابعة طلباتك ومواعيدك')"><div class="icon">📋</div><h3>طلباتي</h3><p>تابع طلباتك ومستنداتك ومواعيدك</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="ai">
+        <div>
+          <h2>هل لا تعرف أي منحة تناسبك؟</h2>
+          <p>دع مساعد منحتي يساعدك في العثور على الفرص المناسبة بناءً على مؤهلاتك وتخصصك وميزانيتك.</p>
+          <br>
+          <button class="primary" onclick="openAssistant()">✨ اكتشف منحتي المناسبة لي</button>
+        </div>
+        <div class="bot">🤖</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scholarships">
+    <div class="container">
+      <div class="section-head">
+        <h2>منح مميزة</h2>
+        <a href="#" onclick="showToast('سيتم فتح جميع المنح في الإصدار القادم');return false">عرض الكل ›</a>
+      </div>
+      <div class="cards" id="scholarshipCards">
+        <article class="card" data-search="ملبورن استراليا ماجستير منحة جامعة">
+          <div class="cover">🇦🇺</div><div class="card-body"><span class="badge">مفتوحة</span><h3>منحة جامعة ملبورن</h3><div class="en">University of Melbourne</div><div class="meta"><span>🇦🇺 أستراليا</span><span>🎓 ماجستير</span><span>💰 تمويل جزئي</span></div><div class="card-footer"><button class="details" onclick="showToast('سيتم ربط هذه الصفحة بقاعدة بيانات المنح')">التفاصيل</button><button class="save" onclick="saveItem(this)">♡</button></div></div>
+        </article>
+        <article class="card" data-search="تورنتو كندا ماجستير دكتوراه منحة">
+          <div class="cover">🇨🇦</div><div class="card-body"><span class="badge">مفتوحة</span><h3>منحة جامعة تورنتو</h3><div class="en">University of Toronto</div><div class="meta"><span>🇨🇦 كندا</span><span>🎓 ماجستير/دكتوراه</span><span>💰 تمويل جزئي</span></div><div class="card-footer"><button class="details" onclick="showToast('سيتم ربط هذه الصفحة بقاعدة بيانات المنح')">التفاصيل</button><button class="save" onclick="saveItem(this)">♡</button></div></div>
+        </article>
+        <article class="card" data-search="chevening بريطانيا ماجستير منحة كاملة">
+          <div class="cover">🇬🇧</div><div class="card-body"><span class="badge">مفتوحة</span><h3>منحة Chevening</h3><div class="en">Chevening Scholarship</div><div class="meta"><span>🇬🇧 بريطانيا</span><span>🎓 ماجستير</span><span>💰 تمويل كامل</span></div><div class="card-footer"><button class="details" onclick="showToast('سيتم ربط هذه الصفحة بقاعدة بيانات المنح')">التفاصيل</button><button class="save" onclick="saveItem(this)">♡</button></div></div>
+        </article>
+        <article class="card" data-search="نيوزيلندا حكومة نيوزيلندا ماجستير دكتوراه منحة كاملة">
+          <div class="cover">🇳🇿</div><div class="card-body"><span class="badge">مفتوحة</span><h3>منحة حكومة نيوزيلندا</h3><div class="en">New Zealand Scholarships</div><div class="meta"><span>🇳🇿 نيوزيلندا</span><span>🎓 ماجستير/دكتوراه</span><span>💰 تمويل كامل</span></div><div class="card-footer"><button class="details" onclick="showToast('سيتم ربط هذه الصفحة بقاعدة بيانات المنح')">التفاصيل</button><button class="save" onclick="saveItem(this)">♡</button></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="universities" class="universities">
+    <div class="container">
+      <div class="section-head"><h2>جامعات مميزة</h2><a href="#" onclick="showToast('سيتم فتح جميع الجامعات في الإصدار القادم');return false">عرض الكل ›</a></div>
+      <div class="cards">
+        <div class="card"><div class="uni-logo">🏛️</div><h3>جامعة أوكلاند</h3><p>🇳🇿 نيوزيلندا</p></div>
+        <div class="card"><div class="uni-logo">🏛️</div><h3>جامعة ملبورن</h3><p>🇦🇺 أستراليا</p></div>
+        <div class="card"><div class="uni-logo">🏛️</div><h3>جامعة تورنتو</h3><p>🇨🇦 كندا</p></div>
+        <div class="card"><div class="uni-logo">🏛️</div><h3>جامعة أكسفورد</h3><p>🇬🇧 المملكة المتحدة</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container benefits">
+      <div class="benefit">🛡️<b>موثوقة وآمنة</b><span>نراجع معلومات المنح والجامعات قبل عرضها.</span></div>
+      <div class="benefit">🌍<b>عالمية وشاملة</b><span>فرص دراسية من دول وجامعات حول العالم.</span></div>
+      <div class="benefit">⏱️<b>توفر وقتك وجهدك</b><span>المعلومات المهمة في مكان واحد.</span></div>
+      <div class="benefit">💙<b>معك في كل خطوة</b><span>من البحث وحتى متابعة التقديم.</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div><strong>منحتي | Minhaty</strong><p>منحتك تبدأ من هنا.</p></div>
+    <div><a href="#scholarships">المنح</a><a href="#universities">الجامعات</a><a href="#">عن منحتي</a><a href="#">تواصل معنا</a></div>
+  </div>
+</footer>
+
+<nav class="bottom">
+  <button class="active" onclick="scrollToSection('top')"><span>⌂</span>الرئيسية</button>
+  <button onclick="scrollToSection('scholarships')"><span>⌕</span>بحث</button>
+  <button onclick="openAssistant()"><span>🤖</span>مساعد منحتي</button>
+  <button onclick="showToast('سجّل الدخول لمتابعة طلباتك')"><span>☷</span>طلباتي</button>
+  <button onclick="showToast('سجّل الدخول لفتح حسابك')"><span>♙</span>حسابي</button>
+</nav>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  function showToast(message){
+    const t=document.getElementById('toast');
+    t.textContent=message;t.classList.add('show');
+    clearTimeout(window.toastTimer);
+    window.toastTimer=setTimeout(()=>t.classList.remove('show'),2600);
+  }
+  function scrollToSection(id){
+    if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return}
+    document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  }
+  function saveItem(btn){
+    btn.textContent=btn.textContent==='♡'?'♥':'♡';
+    showToast(btn.textContent==='♥'?'تم حفظ المنحة':'تمت إزالة المنحة من المحفوظات');
+  }
+  function searchScholarships(){
+    const q=document.getElementById('searchInput').value.trim().toLowerCase();
+    const cards=[...document.querySelectorAll('#scholarshipCards .card')];
+    if(!q){cards.forEach(c=>c.style.display='block');scrollToSection('scholarships');return}
+    let found=0;
+    cards.forEach(c=>{
+      const match=c.dataset.search.toLowerCase().includes(q);
+      c.style.display=match?'block':'none';if(match)found++;
+    });
+    scrollToSection('scholarships');
+    showToast(found?`وجدنا ${found} منحة مطابقة`:'لم نجد نتيجة مطابقة حاليًا');
+  }
+  function openAssistant(){
+    const message=prompt('مساعد منحتي 🤖\\nاكتب تخصصك ومستواك الدراسي والدولة التي ترغب بها.\\nمثال: ماجستير طب، أريد نيوزيلندا، تمويل كامل');
+    if(message) showToast('ممتاز! سيتم استخدام هذه البيانات في محرك التوصيات عند ربط الذكاء الاصطناعي.');
+  }
+  function toggleLanguage(){
+    showToast('نسخة English الكاملة ستُربط في المرحلة التالية.');
+  }
+</script>
+</body>
+</html>
